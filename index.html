@@ -2,14 +2,170 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Quantum Crew - MIS-455 Management Information Systems team profile. Transforming Data into Decisions, One Quantum Leap at a Time.">
+    <meta name="keywords" content="Quantum Crew, MIS-455, Management Information Systems, Team Profile, Data Analytics">
     <title>Quantum Crew | MIS-455</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="root"></div>
-    <script type="module" src="/main.jsx"></script>
+    <div class="app-container">
+        <!-- Animated Background Effect -->
+        <div class="bg-animation">
+            <div class="bg-blob-1"></div>
+            <div class="bg-blob-2"></div>
+        </div>
+
+        <!-- Profile Detail Modal -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal-content" id="modal-container">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Header Section -->
+            <header class="header">
+                <div class="logo-container">
+                    <div class="logo-wrapper">
+                        <div class="logo-glow"></div>
+                        <div class="logo">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="main-title">Quantum Crew</h1>
+                <p class="subtitle">"Transforming Data into Decisions, One Quantum Leap at a Time"</p>
+                <p class="course-info">MIS-455 | Management Information Systems</p>
+            </header>
+
+            <!-- Group Introduction -->
+            <section class="section">
+                <div class="section-header">
+                    <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <h2 class="section-title">About Our Team</h2>
+                </div>
+                <p class="about-text">
+                    We are <span class="highlight">Quantum Crew</span> - a dynamic team of aspiring information
+                    systems professionals committed to leveraging cutting-edge technology and data-driven insights to
+                    solve real-world business challenges.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <h3>Innovation</h3>
+                        <p>Pushing boundaries with creative solutions</p>
+                    </div>
+                    <div class="feature-card blue">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        <h3>Data-Driven</h3>
+                        <p>Making informed decisions through analysis</p>
+                    </div>
+                    <div class="feature-card pink">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                        <h3>Excellence</h3>
+                        <p>Striving for quality in every project</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Members -->
+            <section class="section">
+                <div class="section-header">
+                    <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <h2 class="section-title">Our Team</h2>
+                </div>
+                <div class="team-grid" id="team-grid">
+                    <!-- Team members will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Project Proposal -->
+            <section class="section project-section">
+                <div class="section-header">
+                    <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2 class="section-title">Final Project Proposal</h2>
+                </div>
+
+                <div>
+                    <h3 class="project-title">📊 SmartBiz Analytics Dashboard</h3>
+                    <p class="project-description">
+                        An intelligent business analytics platform that integrates real-time data visualization,
+                        predictive analytics, and automated reporting to help small and medium enterprises make
+                        data-driven decisions.
+                    </p>
+
+                    <div class="objectives-container">
+                        <h4 class="objectives-title">Project Objectives:</h4>
+                        <ul class="objectives-list">
+                            <li>
+                                <span><strong>Data Integration:</strong> Seamlessly connect multiple data sources
+                                    (sales, inventory, customer data) into a unified platform</span>
+                            </li>
+                            <li>
+                                <span><strong>Real-Time Visualization:</strong> Create interactive dashboards displaying
+                                    key performance indicators and business metrics</span>
+                            </li>
+                            <li>
+                                <span><strong>Predictive Analytics:</strong> Implement machine learning models for sales
+                                    forecasting and trend analysis</span>
+                            </li>
+                            <li>
+                                <span><strong>Automated Reporting:</strong> Generate customizable reports and alerts for
+                                    stakeholders</span>
+                            </li>
+                            <li>
+                                <span><strong>User-Friendly Interface:</strong> Design an intuitive interface accessible
+                                    to non-technical business users</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <h4 class="objectives-title">Expected Deliverables:</h4>
+                        <div class="deliverables-grid">
+                            <div>Fully functional web application</div>
+                            <div>Database design &amp; implementation</div>
+                            <div>User documentation &amp; guides</div>
+                            <div>Final presentation &amp; demo</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>© 2024 Quantum Crew | MIS-455 Management Information Systems</p>
+                <p>Empowered by innovation, driven by data, united by purpose</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
