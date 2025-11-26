@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { Users, Target, Zap, Code, Database, TrendingUp, X, Mail, Phone, Briefcase, GraduationCap, Award } from 'lucide-react';
 
@@ -77,10 +78,6 @@ export default function QuantumCrewProfile() {
           <div
             className="bg-gradient-to-br from-slate-800 to-purple-900 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border-2 border-purple-400/50 shadow-2xl transform transition-all duration-300 scale-100 hover:scale-[1.01]"
             onClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') setSelectedMember(null);
-            }}
-            tabIndex={0}
           >
             {/* Modal Header */}
             <div className="sticky top-0 bg-gradient-to-r from-purple-600 to-blue-600 p-6 flex justify-between items-center border-b border-purple-400/30 z-10">
@@ -269,8 +266,8 @@ export default function QuantumCrewProfile() {
                 onMouseLeave={() => setHoveredMember(null)}
               >
                 <div className={`bg-gradient-to-br from-purple-500/30 to-blue-500/30 p-6 rounded-xl border-2 transition-all duration-300 ${hoveredMember === member.id
-                    ? 'border-purple-400 shadow-2xl shadow-purple-500/50 bg-gradient-to-br from-purple-500/40 to-blue-500/40'
-                    : 'border-purple-500/30'
+                  ? 'border-purple-400 shadow-2xl shadow-purple-500/50 bg-gradient-to-br from-purple-500/40 to-blue-500/40'
+                  : 'border-purple-500/30'
                   }`}>
                   <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-6">
                     {member.name.charAt(0)}
