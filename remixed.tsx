@@ -70,12 +70,22 @@ export default function QuantumCrewProfile() {
 
       {/* Profile Detail Modal */}
       {selectedMember && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-          <div className="bg-gradient-to-br from-slate-800 to-purple-900 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border-2 border-purple-400/50 shadow-2xl">
+        <div
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn"
+          onClick={() => setSelectedMember(null)}
+        >
+          <div
+            className="bg-gradient-to-br from-slate-800 to-purple-900 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border-2 border-purple-400/50 shadow-2xl transform transition-all duration-300 scale-100 hover:scale-[1.01]"
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') setSelectedMember(null);
+            }}
+            tabIndex={0}
+          >
             {/* Modal Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-purple-600 to-blue-600 p-6 flex justify-between items-center border-b border-purple-400/30">
+            <div className="sticky top-0 bg-gradient-to-r from-purple-600 to-blue-600 p-6 flex justify-between items-center border-b border-purple-400/30 z-10">
               <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-3xl font-bold">
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg transform transition-transform hover:scale-110">
                   {selectedMember.name.charAt(0)}
                 </div>
                 <div>
@@ -85,7 +95,8 @@ export default function QuantumCrewProfile() {
               </div>
               <button
                 onClick={() => setSelectedMember(null)}
-                className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all"
+                className="bg-white/20 hover:bg-red-500/50 p-3 rounded-full transition-all hover:scale-110 hover:rotate-90 duration-300"
+                title="Close (Press Esc)"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -95,13 +106,13 @@ export default function QuantumCrewProfile() {
             <div className="p-6 space-y-6">
               {/* Role Badge */}
               <div className="flex justify-center">
-                <span className="bg-purple-500/30 border border-purple-400/50 px-6 py-2 rounded-full text-lg font-semibold">
+                <span className="bg-purple-500/30 border border-purple-400/50 px-6 py-2 rounded-full text-lg font-semibold shadow-lg">
                   {selectedMember.role}
                 </span>
               </div>
 
               {/* Bio */}
-              <div className="bg-white/10 rounded-xl p-6 border border-purple-400/30">
+              <div className="bg-white/10 rounded-xl p-6 border border-purple-400/30 hover:bg-white/15 transition-all duration-300">
                 <h3 className="text-xl font-bold text-purple-300 mb-3 flex items-center">
                   <Briefcase className="w-5 h-5 mr-2" />
                   About
@@ -111,14 +122,14 @@ export default function QuantumCrewProfile() {
 
               {/* Contact Info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-white/10 rounded-xl p-4 border border-purple-400/30">
+                <div className="bg-white/10 rounded-xl p-4 border border-purple-400/30 hover:bg-white/15 hover:border-purple-400/50 transition-all duration-300 cursor-pointer">
                   <div className="flex items-center text-purple-300 mb-2">
                     <Mail className="w-5 h-5 mr-2" />
                     <span className="font-semibold">Email</span>
                   </div>
-                  <p className="text-gray-200 text-sm">{selectedMember.email}</p>
+                  <p className="text-gray-200 text-sm break-all">{selectedMember.email}</p>
                 </div>
-                <div className="bg-white/10 rounded-xl p-4 border border-purple-400/30">
+                <div className="bg-white/10 rounded-xl p-4 border border-purple-400/30 hover:bg-white/15 hover:border-purple-400/50 transition-all duration-300 cursor-pointer">
                   <div className="flex items-center text-purple-300 mb-2">
                     <Phone className="w-5 h-5 mr-2" />
                     <span className="font-semibold">Phone</span>
@@ -128,7 +139,7 @@ export default function QuantumCrewProfile() {
               </div>
 
               {/* Major */}
-              <div className="bg-white/10 rounded-xl p-4 border border-purple-400/30">
+              <div className="bg-white/10 rounded-xl p-4 border border-purple-400/30 hover:bg-white/15 transition-all duration-300">
                 <div className="flex items-center text-purple-300 mb-2">
                   <GraduationCap className="w-5 h-5 mr-2" />
                   <span className="font-semibold">Major</span>
@@ -137,7 +148,7 @@ export default function QuantumCrewProfile() {
               </div>
 
               {/* Skills */}
-              <div className="bg-white/10 rounded-xl p-6 border border-purple-400/30">
+              <div className="bg-white/10 rounded-xl p-6 border border-purple-400/30 hover:bg-white/15 transition-all duration-300">
                 <h3 className="text-xl font-bold text-purple-300 mb-4 flex items-center">
                   <Code className="w-5 h-5 mr-2" />
                   Skills & Expertise
@@ -146,7 +157,7 @@ export default function QuantumCrewProfile() {
                   {selectedMember.skills.map((skill, index) => (
                     <span
                       key={index}
-                      className="bg-purple-500/30 border border-purple-400/50 px-4 py-2 rounded-lg text-sm font-medium"
+                      className="bg-purple-500/30 border border-purple-400/50 px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-500/50 hover:scale-105 transition-all duration-200 cursor-default"
                     >
                       {skill}
                     </span>
@@ -155,14 +166,14 @@ export default function QuantumCrewProfile() {
               </div>
 
               {/* Interests */}
-              <div className="bg-white/10 rounded-xl p-6 border border-purple-400/30">
+              <div className="bg-white/10 rounded-xl p-6 border border-purple-400/30 hover:bg-white/15 transition-all duration-300">
                 <h3 className="text-xl font-bold text-purple-300 mb-4 flex items-center">
                   <Target className="w-5 h-5 mr-2" />
                   Areas of Interest
                 </h3>
                 <ul className="space-y-2">
                   {selectedMember.interests.map((interest, index) => (
-                    <li key={index} className="flex items-center text-gray-200">
+                    <li key={index} className="flex items-center text-gray-200 hover:text-purple-300 transition-colors">
                       <span className="text-purple-400 mr-3">▸</span>
                       {interest}
                     </li>
@@ -171,15 +182,15 @@ export default function QuantumCrewProfile() {
               </div>
 
               {/* Achievements */}
-              <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6 border border-purple-400/50">
+              <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6 border border-purple-400/50 hover:from-purple-500/30 hover:to-blue-500/30 transition-all duration-300">
                 <h3 className="text-xl font-bold text-purple-300 mb-4 flex items-center">
                   <Award className="w-5 h-5 mr-2" />
                   Achievements & Recognition
                 </h3>
                 <ul className="space-y-2">
                   {selectedMember.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-center text-gray-200">
-                      <span className="text-yellow-400 mr-3">★</span>
+                    <li key={index} className="flex items-center text-gray-200 hover:text-yellow-200 transition-colors">
+                      <span className="text-yellow-400 mr-3 text-lg">★</span>
                       {achievement}
                     </li>
                   ))}
@@ -243,7 +254,7 @@ export default function QuantumCrewProfile() {
         </section>
 
         {/* Team Members */}
-        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8 border border-purple-500/30">
+        <section className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8 border border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300">
           <div className="flex items-center mb-6">
             <Users className="w-8 h-8 text-purple-400 mr-3" />
             <h2 className="text-3xl font-bold">Our Team</h2>
@@ -253,22 +264,29 @@ export default function QuantumCrewProfile() {
               <button
                 key={member.id}
                 onClick={() => setSelectedMember(member)}
-                className="group relative text-left"
+                className="group relative text-left transform transition-all duration-300 hover:-translate-y-2"
                 onMouseEnter={() => setHoveredMember(member.id)}
                 onMouseLeave={() => setHoveredMember(null)}
               >
-                <div className={`bg-gradient-to-br from-purple-500/30 to-blue-500/30 p-6 rounded-xl border-2 transition-all duration-300 ${hoveredMember === member.id ? 'border-purple-400 scale-105 shadow-2xl shadow-purple-500/50' : 'border-purple-500/30'
+                <div className={`bg-gradient-to-br from-purple-500/30 to-blue-500/30 p-6 rounded-xl border-2 transition-all duration-300 ${hoveredMember === member.id
+                    ? 'border-purple-400 shadow-2xl shadow-purple-500/50 bg-gradient-to-br from-purple-500/40 to-blue-500/40'
+                    : 'border-purple-500/30'
                   }`}>
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold">
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-6">
                     {member.name.charAt(0)}
                   </div>
                   <h3 className="text-xl font-semibold text-center mb-1 group-hover:text-purple-300 transition-colors">
                     {member.name}
                   </h3>
                   <p className="text-purple-400 text-center text-sm font-semibold mb-1">{member.studentId}</p>
-                  <p className="text-purple-300 text-center text-sm">{member.role}</p>
-                  <div className="mt-3 text-center text-xs text-gray-400 group-hover:text-purple-300 transition-colors">
-                    Click to view profile →
+                  <p className="text-purple-300 text-center text-sm mb-2">{member.role}</p>
+                  <div className="mt-3 pt-3 border-t border-purple-400/30 text-center text-xs text-gray-400 group-hover:text-purple-300 transition-colors">
+                    <span className="inline-flex items-center gap-1">
+                      Click to view profile
+                      <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </div>
                 </div>
               </button>
